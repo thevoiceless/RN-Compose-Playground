@@ -4,10 +4,13 @@ import {
   Text,
   View,
 } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   return (
-    ScreenA()
+    <NavigationContainer>
+      {ScreenA()}
+    </NavigationContainer>
   );
 };
 
