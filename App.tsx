@@ -7,7 +7,7 @@ import {
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
@@ -23,8 +23,8 @@ const App = () => {
 
 export default App;
 
-function ScreenA({navigation}) {
-  const foo = useNavigation()
+const ScreenA = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <Text>Screen A</Text>
@@ -35,8 +35,9 @@ function ScreenA({navigation}) {
   )
 }
 
-function ScreenB({navigation}) {
-  return (
+const ScreenB = () => {
+    const navigation = useNavigation();
+    return (
     <View>
       <Text>Screen B</Text>
       <Button title={"Next screen"} onPress={() => {
@@ -46,7 +47,8 @@ function ScreenB({navigation}) {
   )
 }
 
-function ScreenC({navigation}) {
+const ScreenC = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <Text>Screen A</Text>
