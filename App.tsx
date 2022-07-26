@@ -1,11 +1,13 @@
 import React from 'react';
 import {
-  Button,
+  Button, requireNativeComponent,
   Text,
   View,
 } from "react-native";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const ComposeView = requireNativeComponent("ComposeView");
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +29,7 @@ const ScreenA = () => {
   const navigation = useNavigation();
   return (
     <View>
-      <Text>Screen A</Text>
+      <Text>Go to the next screen.</Text>
       <Button title={"Next screen"} onPress={() => {
         navigation.navigate("B")
       }} />
@@ -39,7 +41,9 @@ const ScreenB = () => {
     const navigation = useNavigation();
     return (
     <View>
-      <Text>Screen B</Text>
+      <Text>The ComposeView is green; its composeable content is magenta.</Text>
+      <Text>Go to the next screen and then come back.</Text>
+      <ComposeView style={{height: 100}} />
       <Button title={"Next screen"} onPress={() => {
         navigation.navigate("C")
       }} />
@@ -51,7 +55,7 @@ const ScreenC = () => {
   const navigation = useNavigation();
   return (
     <View>
-      <Text>Screen A</Text>
+      <Text>Return to the previous screen; the composeable content will be gone.</Text>
     </View>
   )
 }

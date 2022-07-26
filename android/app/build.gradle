@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: 'kotlin-android'
 
 import com.android.build.OutputFile
 
@@ -129,6 +130,23 @@ def reactNativeArchitectures() {
 }
 
 android {
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -284,6 +302,11 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation "androidx.compose.ui:ui:1.1.1"
+    implementation "androidx.compose.ui:ui-tooling:1.1.1"
+    implementation "androidx.compose.foundation:foundation:1.1.1"
+    implementation "androidx.compose.material:material:1.1.1"
 }
 
 if (isNewArchitectureEnabled()) {
