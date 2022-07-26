@@ -4,41 +4,49 @@ import {
   Text,
   View,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator()
 
 const App = () => {
   return (
     <NavigationContainer>
-      {ScreenA()}
+      <Stack.Navigator initialRouteName={"A"}>
+        <Stack.Screen name={"A"} component={ScreenA} />
+        <Stack.Screen name={"B"} component={ScreenB} />
+        <Stack.Screen name={"C"} component={ScreenC} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default App;
 
-const ScreenA = () => {
+function ScreenA({navigation}) {
+  const foo = useNavigation()
   return (
     <View>
       <Text>Screen A</Text>
       <Button title={"Next screen"} onPress={() => {
-        // TODO
+        navigation.navigate("B")
       }} />
     </View>
   )
 }
 
-const ScreenB = () => {
+function ScreenB({navigation}) {
   return (
     <View>
       <Text>Screen B</Text>
       <Button title={"Next screen"} onPress={() => {
-        // TODO
+        navigation.navigate("C")
       }} />
     </View>
   )
 }
 
-const ScreenC = () => {
+function ScreenC({navigation}) {
   return (
     <View>
       <Text>Screen A</Text>
