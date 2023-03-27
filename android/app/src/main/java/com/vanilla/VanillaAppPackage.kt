@@ -7,6 +7,6 @@ import com.facebook.react.bridge.ReactApplicationContext
 class VanillaAppPackage : ReactPackage {
     override fun createNativeModules(context: ReactApplicationContext) = emptyList<NativeModule>()
     override fun createViewManagers(context: ReactApplicationContext) = listOf(
-        ComposeViewManager()
+        ComposeViewManager(context)
     )
 }
