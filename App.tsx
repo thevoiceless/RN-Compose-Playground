@@ -41,7 +41,7 @@ const ScreenB = () => {
     const navigation = useNavigation();
     return (
     <View>
-      <Text>The ComposeView is green; its composeable content is magenta.</Text>
+      <Text>The ComposeView is green; its composable content is magenta.</Text>
       <Text>Go to the next screen and then come back.</Text>
       <ComposeView style={{height: 100}} />
       <Button title={"Next screen"} onPress={() => {
@@ -55,7 +55,7 @@ const ScreenC = () => {
   const navigation = useNavigation();
   return (
     <View>
-      <Text>Return to the previous screen; the composeable content will be gone.</Text>
+      <Text>Return to the previous screen; the composable content will be gone.</Text>
     </View>
   )
 }
